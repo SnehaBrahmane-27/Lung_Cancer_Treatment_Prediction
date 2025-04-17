@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saved Patient Records</title>
+    <link rel="stylesheet" href="/static/css/style_p.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Saved Patient Records</h1>
+
+        <div class="filters">
+            <input type="text" id="nameSearch" placeholder="Search by Name" />
+            <select id="treatmentFilter">
+                <option value="">Filter by Treatment</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Radiation">Radiation</option>
+                <option value="Chemotherapy">Chemotherapy</option>
+                <option value="Targeted Therapy">Targeted Therapy</option>
+            </select>
+            <input type="date" id="dateFilter" />
+        </div>
+
+        <table id="recordsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Tumor Size</th>
+                    <th>Smoking History</th>
+                    <th>Stage</th>
+                    <th>BP</th>
+                    <th>WBC</th>
+                    <th>LDH</th>
+                    <th>Comorbidities</th>
+                    <th>Prediction</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td>{{ patient.patient_id }}</td>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.tumor_size }}</td>
+                    <td>{{ patient.smoking_history }}</td>
+                    <td>{{ patient.stage }}</td>
+                    <td>{{ patient.bp_systolic }}</td>
+                    <td>{{ patient.wbc_count }}</td>
+                    <td>{{ patient.ldh_level }}</td>
+                    <td>
+                        {% if patient.diabetes %} Diabetes {% endif %}
+                        {% if patient.heart_disease %} Heart {% endif %}
+                        {% if patient.chronic_lung_disease %} Lung {% endif %}
+                    </td>
+                    <td>{{ patient.predicted_treatment }}</td>
+                    <td>{{ patient.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <a href="/">Back to Dashboard</a>
+    </div>
+
+    <script>
+        const nameSearch = document.getElementById("nameSearch");
+        const treatmentFilter = document.getElementById("treatmentFilter");
+        const dateFilter = document.getElementById("dateFilter");
+        const table = document.getElementById("recordsTable").getElementsByTagName("tbody")[0];
+
+        function filterTable() {
+            const nameVal = nameSearch.value.toLowerCase().trim();
+            const treatmentVal = treatmentFilter.value.toLowerCase().trim();
+            const dateVal = dateFilter.value; 
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].children;
+
+                const name = cells[2].textContent.toLowerCase().trim();
+                const treatment = cells[10].textContent.toLowerCase().trim();
+                const fullDate = cells[11].textContent.trim();
+                const dateOnly = fullDate.split(" ")[0]; 
+
+                const nameMatch = name.includes(nameVal);
+                const treatmentMatch = !treatmentVal || treatment === treatmentVal;
+                const dateMatch = !dateVal || dateOnly === dateVal;
+
+                if (nameMatch && treatmentMatch && dateMatch) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+        nameSearch.addEventListener("input", filterTable);
+        treatmentFilter.addEventListener("change", filterTable);
+        dateFilter.addEventListener("change", filterTable);
+    </script>
+</body>
+</html>

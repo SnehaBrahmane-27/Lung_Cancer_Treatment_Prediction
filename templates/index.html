@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Treatment Prediction</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lung Cancer Treatment Prediction</h1>
+        <form id="predictionForm" onsubmit="return validateForm()">
+            <label for="patient_id">Patient ID:</label>
+            <input type="text" id="patient_id" name="patient_id" required placeholder="Enter Patient ID">
+
+            <label for="name">Patient Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter Patient Name">
+
+            <label for="tumor_size">Tumor Size (mm):</label>
+            <input type="number" id="tumor_size" name="tumor_size" min="1" max="30" required placeholder="Enter Tumor Size (mm)">
+            <small id="tumor_size_error" class="error"></small>
+            
+            <label for="smoking_history">Smoking History:</label>
+            <select id="smoking_history" name="smoking_history" required>
+                <option value="" disabled selected>Select Smoking History</option>
+                <option value="Never Smoker">Never</option>
+                <option value="Current Smoker">Current</option>
+                <option value="Former Smoker">Former</option>
+            </select>
+            <small id="smoking_history_error" class="error"></small>
+            
+            <label for="stage">Cancer Stage:</label>
+            <select id="stage" name="stage" required>
+                <option value="" disabled selected>Select Cancer Stage</option>
+                <option value="Stage I">Stage I</option>
+                <option value="Stage II">Stage II</option>
+                <option value="Stage III">Stage III</option>
+                <option value="Stage IV">Stage IV</option>
+            </select>
+            <small id="stage_error" class="error"></small>
+
+            <label for="bp_systolic">Blood Pressure Systolic (mmHg):</label>
+            <input type="number" id="bp_systolic" name="bp_systolic" min="50" max="200" required placeholder="Enter Blood Pressure (mmHg)">
+            <small id="bp_systolic_error" class="error"></small>
+
+            <label for="wbc_count">White Blood Cell Count (per µL):</label>
+            <input type="number" id="wbc_count" name="wbc_count" min="0" max="50000" required placeholder="Enter WBC Count">
+            <small id="wbc_count_error" class="error"></small>
+
+            <label for="ldh_level">LDH Level (U/L):</label>
+            <input type="number" id="ldh_level" name="ldh_level" min="100" max="10000" required placeholder="Enter LDH Level">
+            <small id="ldh_level_error" class="error"></small>
+
+            <label>Comorbidities:</label>
+            <div>
+                <input type="checkbox" id="diabetes" name="diabetes" value="Yes">
+                <label for="diabetes">Diabetes</label>
+            </div>
+            <div>
+                <input type="checkbox" id="heart_disease" name="heart_disease" value="Yes">
+                <label for="heart_disease">Heart Disease</label>
+            </div>
+            <div>
+                <input type="checkbox" id="chronic_lung_disease" name="chronic_lung_disease" value="Yes">
+                <label for="chronic_lung_disease">Chronic Lung Disease</label>
+            </div>
+            
+            <button type="submit">Predict Treatment</button>
+        </form>
+        <br>
+<a href="/records">View Saved Patient Records</a>
+
+
+        <div id="result"></div>
+    </div>
+
+    <script src="/static/js/validation.js"></script>
+</body>
+</html>

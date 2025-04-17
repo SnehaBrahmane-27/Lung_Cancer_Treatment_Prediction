@@ -1,0 +1,130 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; 
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); 
+    padding: 40px;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 40px 0; 
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem; 
+    margin-bottom: 30px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    color: #06192d;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.error {
+    font-size: 0.85rem;
+    color: red;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: -50px;
+    vertical-align: middle;
+}
+
+
+
+
+
+button {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    background-color: #2c3e50;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #76035d;
+}
+
+div {
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input, select {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
