@@ -1,3 +1,4 @@
+@ -0,0 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #fff8dc;
+      background-color: #d3e3ff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
     }
@@ -16,7 +17,7 @@
       max-width: 500px;
       margin: 60px auto;
       padding: 30px 40px;
-      background-color: #fffbea;
+      background-color: #8fa9ff;
       box-shadow: 0 0 15px rgba(255, 208, 0, 0.4);
       border-radius: 12px;
       border: 2px solid #4555d1;
@@ -78,7 +79,7 @@
       padding: 12px 20px;
       text-align: center;
       font-size: 16px;
-      margin-top: 10px;
+      margin-top: 20px;
       cursor: pointer;
       border-radius: 6px;
       width: 100%;
@@ -93,7 +94,7 @@
     .section-title {
       margin-top: 25px;
       font-size: 18px;
-      color: #b8860b;
+      color: #000000;
       border-bottom: 1px solid #4555d1;
       padding-bottom: 5px;
     }
@@ -101,7 +102,7 @@
     small {
       display: block;
       margin-top: 5px;
-      color: #666;
+      color: #5b5b5b;
       font-size: 12px;
     }
 
@@ -113,8 +114,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>Employee Registration</h2>
-    <p class="subtitle">Register your company account to access the portal</p>
+    <h2>Doctor Registration</h2>
 
     <div class="section-title">Basic Information</div>
     <label for="name">Full Name</label>
@@ -132,37 +132,6 @@
 
     <label for="confirm-password">Confirm Password</label>
     <input type="password" id="confirm-password" placeholder="Confirm your password" required>
-
-    <div class="section-title">Company Information</div>
-    <label for="company-name">Company Name</label>
-    <input type="text" id="company-name" placeholder="Enter your company name" required>
-
-    <label for="website">Company Website</label>
-    <input type="url" id="website" placeholder="Enter company website URL">
-
-    <label for="employee-id">Employee ID/Designation</label>
-    <input type="text" id="employee-id" placeholder="Enter your employee ID or designation" required>
-
-    <label for="department">Department</label>
-    <select id="department" required>
-      <option value="">Select your department</option>
-      <option value="hr">Human Resources</option>
-      <option value="it">Information Technology</option>
-      <option value="marketing">Marketing</option>
-      <option value="operations">Operations</option>
-      <option value="finance">Finance</option>
-      <option value="other">Other</option>
-    </select>
-
-    <div class="section-title">Verification</div>
-    <label for="company-id">Upload Company ID/Verification Document</label>
-    <input type="file" id="company-id" required>
-    <small>Upload a scanned copy of your company ID or verification document</small>
-
-    <div class="terms">
-      <input type="checkbox" id="agree" required>
-      <label for="agree">I agree to the <a href="#">Terms & Conditions</a></label>
-    </div>
 
     <button type="submit" class="btn">Register</button>
   </div>
