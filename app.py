@@ -4,6 +4,13 @@ from datetime import datetime
 import pandas as pd
 import pickle
 import os
+import sqlite3
+
+
+conn = sqlite3.connect('data/database.db')
+
+
+
 
 with open('model.pkl', 'rb') as model_file:
     model_bundle = pickle.load(model_file)
