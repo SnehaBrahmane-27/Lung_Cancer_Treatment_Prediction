@@ -7,11 +7,6 @@ import os
 import sqlite3
 
 
-conn = sqlite3.connect('data/database.db')
-
-
-
-
 with open('model.pkl', 'rb') as model_file:
     model_bundle = pickle.load(model_file)
     clf_selected = model_bundle['model']
